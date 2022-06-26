@@ -1,8 +1,8 @@
 body{  
-    min-width: 200px;  
+    min-width: 50px;
     text-align: center;  
     font-family: century Gothic;  
-    }  
+   }  
 .button {  
     background-color: #4CAF50;  
     border: none;  
@@ -11,7 +11,7 @@ body{
     text-align: center;  
     text-decoration: none;  
     display: inline-block;  
-    font-size: 16px;  
+    font-size: 5px;  
     margin: 4px 2px;  
     transition-duration: 0.4s;  
     cursor: pointber;  

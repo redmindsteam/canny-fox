@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {  
-    var checkPageButton = document.getElementById('checkPage'); 
-    alert("salom"); 
+    var checkPageButton = document.getElementById('find-button'); 
     checkPageButton.addEventListener('click', function() {  
-        chrome.tabs.getSelected(null, function(tab) {  
-            d = document;  
-            window.open('https://www.google.com/search?q=mindflow', 'blank');  
-        });
-        alert("bosildi"); 
+        chrome.tabs.executeScript({
+            code: "window.getSelection().toString();"
+          }, function(selection) {
+            if(selection[0] == "") alert("rasmdan olib kelish kerak");
+            else alert(selection[0]);
+          });        
     }, false);  
 }, false);  
