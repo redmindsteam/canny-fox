@@ -1,4 +1,5 @@
 ﻿using CannyFox.Api.Interfaces.Services;
+using CannyFox.Api.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace CannyFox.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> FindAsync([FromBody] string search)
-            => Ok(await service.FindAsync(search));
+        public async Task<IActionResult> FindAsync([FromBody] FindableViewModel findableViewModel)
+            => Ok(await service.FindAsync(findableViewModel.Search));
     }
 }
