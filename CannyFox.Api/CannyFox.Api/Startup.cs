@@ -36,6 +36,11 @@ namespace CannyFox.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CannyFox.Api", Version = "v1" });
             });
+            services.AddCors(p =>
+            {
+                p.AddPolicy("AllowAll", p =>
+                    p.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
+            });
             services.AddScoped<ITestRepository, TestRepository>();
             services.AddScoped<ITestService, TestService>();
 
@@ -50,7 +55,7 @@ namespace CannyFox.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CannyFox.Api v1"));
             }
-
+            app.UseCors("AllowAll");
             app.UseHttpsRedirection();
 
             app.UseRouting();
