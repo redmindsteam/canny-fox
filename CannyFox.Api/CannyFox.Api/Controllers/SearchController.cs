@@ -16,8 +16,8 @@ namespace CannyFox.Api.Controllers
             this.service = _service;
         }
 
-        [HttpGet("{search}")]
-        public async Task<IActionResult> FindAsync(string search)
+        [HttpPost]
+        public async Task<IActionResult> FindAsync([FromBody] string search)
             => Ok(await service.FindAsync(search));
     }
 }
